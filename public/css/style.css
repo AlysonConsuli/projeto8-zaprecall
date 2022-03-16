@@ -1,0 +1,11 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Recursive', sans-serif;
+    font-weight: 400;
+    cursor: default;
+}
+
+/*font-family: 'Righteous', cursive;*/
