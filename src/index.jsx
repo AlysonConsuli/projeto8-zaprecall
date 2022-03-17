@@ -1,15 +1,4 @@
 import reactDom from "react-dom";
-import { Enter } from "./components/enter";
-import { Main } from "./components/main";
+import { App } from "./App";
 
-function App() {
-    return (
-        <>
-            <Enter />
-            <Main />
-        </>
-    )
-}
-
-const root = document.querySelector('.root')
-reactDom.render(<App />, root)
+reactDom.render(<App />, document.querySelector('.root'))
