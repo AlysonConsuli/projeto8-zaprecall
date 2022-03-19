@@ -6,7 +6,9 @@ import { Card } from "./Card"
 export const Game = () => {
     const numeros = [{ num: 1 }, { num: 2 }, { num: 3 }, { num: 4 }, { num: 5 }, { num: 6 }, { num: 7 }, { num: 8 }]
 
-    const [cardOpen, setCardOpen] = useState(false)
+    const [done, setDone] = useState(0)
+
+    const [answers, setAnswers] = useState([])
 
     return (
         <>
@@ -16,12 +18,12 @@ export const Game = () => {
             </Header>
             <Deck>
                 {numeros.map(numero => {
-                    return !cardOpen ? <Card {...numero} fn={() => setCardOpen(true)} /> : ''
+                    return <Card {...numero} callback={() => setDone(done+1)} />
+                })
                 }
-                )}
             </Deck>
             <Footer>
-                <span>0/4 CONCLUÍDOS</span>
+                <span>{done}/{numeros.length} CONCLUÍDOS</span>
             </Footer>
         </>
     )

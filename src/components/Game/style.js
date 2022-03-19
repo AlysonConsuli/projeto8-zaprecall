@@ -23,7 +23,7 @@ export const Deck = styled.main`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 5px;
+    //gap: 5px;
     padding-bottom: 71px;
 
     span {
