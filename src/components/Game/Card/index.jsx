@@ -1,12 +1,12 @@
 import { useState } from "react";
 import img1 from "../../../assets/vector.png";
 import img2 from "../../../assets/setinha.png";
-import erro from "../../../assets/erro.png";
-import duvida from "../../../assets/duvida.png";
-import certo from "../../../assets/certo.png";
+import error from "../../../assets/error.png";
+import almost from "../../../assets/almost.png";
+import zap from "../../../assets/zap.png";
 import { ClosedCard, OpenCard, Btn, Red, Yellow, Green } from "./style";
 
-export const Card = ({ num, callback }) => {
+export const Card = ({ number, question, correctAnswer, callback }) => {
     const [cardOpen, setCardOpen] = useState(false)
     const [turnCard, setTurnCard] = useState(false)
 
@@ -15,8 +15,8 @@ export const Card = ({ num, callback }) => {
     if (answer === 'red') {
         return (
             <ClosedCard>
-                <Red>Pergunta {num}</Red>
-                <img src={erro} alt="erro" />
+                <Red>Pergunta {number}</Red>
+                <img src={error} alt="error" />
             </ClosedCard>
         )
     }
@@ -24,8 +24,8 @@ export const Card = ({ num, callback }) => {
     if (answer === 'yellow') {
         return (
             <ClosedCard>
-                <Yellow>Pergunta {num}</Yellow>
-                <img src={duvida} alt="duvida" />
+                <Yellow>Pergunta {number}</Yellow>
+                <img src={almost} alt="almost" />
             </ClosedCard>
         )
     }
@@ -33,8 +33,8 @@ export const Card = ({ num, callback }) => {
     if (answer === 'green') {
         return (
             <ClosedCard>
-                <Green>Pergunta {num}</Green>
-                <img src={certo} alt="certo" />
+                <Green>Pergunta {number}</Green>
+                <img src={zap} alt="zap" />
             </ClosedCard>
         )
     }
@@ -42,7 +42,7 @@ export const Card = ({ num, callback }) => {
     if (cardOpen === false) {
         return (
             <ClosedCard>
-                <span>Pergunta {num}</span>
+                <span>Pergunta {number}</span>
                 <img onClick={() => { setCardOpen(true) }} src={img1} alt="seta" />
             </ClosedCard>
         )
@@ -51,26 +51,26 @@ export const Card = ({ num, callback }) => {
             <OpenCard>
                 {turnCard === false ? (
                     <>
-                        <span>O que é JSX?</span>
+                        <span>{question}</span>
                         <img onClick={() => { setTurnCard(true) }} src={img2} alt="seta redonda" />
                     </>
                 ) : (
                     <>
-                        <span>JSX é uma sintaxe para escrever HTML dentro do JS</span>
+                        <span>{correctAnswer}</span>
                         <div>
                             <Btn onClick={() => {
                                 setAnswer('red')
-                                callback()
+                                callback(error)
                             }}
                             >Não lembrei</Btn>
                             <Btn onClick={() => {
                                 setAnswer('yellow')
-                                callback()
+                                callback(almost)
                             }}
                             >Quase não lembrei</Btn>
                             <Btn onClick={() => {
                                 setAnswer('green')
-                                callback()
+                                callback(zap)
                             }}
                             >Zap!</Btn>
                         </div>
