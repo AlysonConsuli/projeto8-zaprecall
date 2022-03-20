@@ -33,9 +33,37 @@ export const EntryScreen = styled.div`
         color: #D70900;
     }
 
+    input{
+        width: 246px;
+        min-height: 43px;
+        background: #FFFFFF;
+        border-radius: 5px;
+        border: none;
+        margin-bottom: 15px;
+        font-family: 'Recursive';
+        font-weight: 400;
+        cursor: pointer;
+        font-size: 18px;
+        padding-left: 10px;
+    }
+
+    select{
+        width: 246px;
+        min-height: 43px;
+        background: #FFFFFF;
+        border-radius: 5px;
+        border: none;
+        margin-bottom: 15px;
+        font-family: 'Recursive';
+        font-weight: 400;
+        cursor: pointer;
+        font-size: 18px;
+        padding-left: 5px;
+    }
+
     @media (min-width: 1100px){
 
-        padding-top: 100px;
+        padding-top: 50px;
 
         h1 {
             font-size: 64px;
@@ -44,12 +72,19 @@ export const EntryScreen = styled.div`
         }
 
         button {
-            width: 500px;
-            height: 80px;
+            width: 400px;
+            height: 70px;
         }
 
         span {
-            font-size: 32px;
+            font-size: 22px;
+        }
+
+        input,
+        select{
+            width: 400px;
+            height: 70px;
+            font-size: 24px;
         }
 
         img{

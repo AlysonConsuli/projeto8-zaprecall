@@ -6,7 +6,7 @@ import sad from "../../../assets/sad.png";
 import { FooterStyled } from "./style"
 import { End } from "./End";
 
-export const Footer = ({ done, cards, answers }) => {
+export const Footer = ({ done, cards, answers, restart, zapNumber }) => {
     return (
         <FooterStyled >
             {done !== cards.length ?
@@ -15,7 +15,7 @@ export const Footer = ({ done, cards, answers }) => {
                     <div>
                         {answers.map((el, i) => <img key={i + 1} src={el} alt={el} />)}
                     </div>
-                </> : (answers.includes(error) ?
+                </> : (answers.includes(error) || (answers.filter(el => el === zap)).length < zapNumber ?
                     <End
                         done={done}
                         cards={cards}
@@ -23,6 +23,7 @@ export const Footer = ({ done, cards, answers }) => {
                         src={sad}
                         title={'PUTZ...'}
                         msg={'Ainda faltaram alguns... Mas não desanime!'}
+                        restart={restart}
                     />
                     :
                     <End
@@ -32,6 +33,7 @@ export const Footer = ({ done, cards, answers }) => {
                         src={party}
                         title={'Parabéns!'}
                         msg={'Você não esqueceu de nenhum flashcard!'}
+                        restart={restart}
                     />
                 )
             }

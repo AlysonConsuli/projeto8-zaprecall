@@ -22,6 +22,26 @@ export const EndStyled = styled.div`
         gap: 6px;
     }
 
+    button{
+        width: 167px;
+        height: 32px;
+        background-color: #FB6B6B;
+        border-radius: 5px;
+        border: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+    }
+
+    button span{
+        font-family: 'Recursive';
+        font-weight: 400;
+        font-size: 14px;
+        color: #FFFFFF;
+        width: auto;
+    }
+
     @media(min-width: 1100px){
         min-height: 210px;
 

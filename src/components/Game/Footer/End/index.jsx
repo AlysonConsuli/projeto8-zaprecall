@@ -1,6 +1,6 @@
 import { EndStyled } from "./style"
 
-export const End = ({ done, cards, answers, src, title, msg }) => {
+export const End = ({ done, cards, answers, src, title, msg, restart }) => {
     return (
         <EndStyled>
             <div>
@@ -14,6 +14,9 @@ export const End = ({ done, cards, answers, src, title, msg }) => {
                     {answers.map((el, i) => <img key={i + 1} src={el} alt={el} />)}
                 </div>
             </div>
+            <button onClick={restart}>
+                <span>REINICIAR RECALL</span>
+            </button>
         </EndStyled>
     )
 }
