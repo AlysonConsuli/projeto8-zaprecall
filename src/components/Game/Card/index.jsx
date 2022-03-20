@@ -1,83 +1,35 @@
 import { useState } from "react";
-import img1 from "../../../assets/vector.png";
-import img2 from "../../../assets/setinha.png";
 import error from "../../../assets/error.png";
 import almost from "../../../assets/almost.png";
 import zap from "../../../assets/zap.png";
-import { ClosedCard, OpenCard, Btn, Red, Yellow, Green } from "./style";
+import { OpenCard } from "./OpenCard";
+import { ClosedCard } from "./ClosedCard";
+import { EndCardRed, EndCardYellow, EndCardGreen } from "./EndCard";
 
 export const Card = ({ number, question, correctAnswer, callback }) => {
     const [cardOpen, setCardOpen] = useState(false)
-    const [turnCard, setTurnCard] = useState(false)
-
     const [answer, setAnswer] = useState('')
 
-    if (answer === 'red') {
-        return (
-            <ClosedCard>
-                <Red>Pergunta {number}</Red>
-                <img src={error} alt="error" />
-            </ClosedCard>
-        )
+    function fn(color, status) {
+        setAnswer(color)
+        callback(status)
     }
 
-    if (answer === 'yellow') {
-        return (
-            <ClosedCard>
-                <Yellow>Pergunta {number}</Yellow>
-                <img src={almost} alt="almost" />
-            </ClosedCard>
-        )
-    }
-
-    if (answer === 'green') {
-        return (
-            <ClosedCard>
-                <Green>Pergunta {number}</Green>
-                <img src={zap} alt="zap" />
-            </ClosedCard>
-        )
-    }
+    if (answer === 'red') { return <EndCardRed number={number} /> }
+    if (answer === 'yellow') { return <EndCardYellow number={number} /> }
+    if (answer === 'green') { return <EndCardGreen number={number} /> }
 
     if (cardOpen === false) {
-        return (
-            <ClosedCard>
-                <span>Pergunta {number}</span>
-                <img onClick={() => { setCardOpen(true) }} src={img1} alt="seta" />
-            </ClosedCard>
-        )
+        return (<ClosedCard number={number} fn={() => { setCardOpen(true) }} />)
     } else {
         return (
-            <OpenCard>
-                {turnCard === false ? (
-                    <>
-                        <span>{question}</span>
-                        <img onClick={() => { setTurnCard(true) }} src={img2} alt="seta redonda" />
-                    </>
-                ) : (
-                    <>
-                        <span>{correctAnswer}</span>
-                        <div>
-                            <Btn onClick={() => {
-                                setAnswer('red')
-                                callback(error)
-                            }}
-                            >Não lembrei</Btn>
-                            <Btn onClick={() => {
-                                setAnswer('yellow')
-                                callback(almost)
-                            }}
-                            >Quase não lembrei</Btn>
-                            <Btn onClick={() => {
-                                setAnswer('green')
-                                callback(zap)
-                            }}
-                            >Zap!</Btn>
-                        </div>
-                    </>
-                )
-                }
-            </OpenCard>
+            <OpenCard
+                question={question}
+                correctAnswer={correctAnswer}
+                fn1={() => { fn('red', error) }}
+                fn2={() => { fn('yellow', almost) }}
+                fn3={() => { fn('green', zap) }}
+            />
         )
     }
 }
