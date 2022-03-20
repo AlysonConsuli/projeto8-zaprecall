@@ -21,6 +21,7 @@ export const Footer = ({ done, cards, answers }) => {
                         cards={cards}
                         answers={answers}
                         src={sad}
+                        title={'PUTZ...'}
                         msg={'Ainda faltaram alguns... Mas não desanime!'}
                     />
                     :
@@ -29,6 +30,7 @@ export const Footer = ({ done, cards, answers }) => {
                         cards={cards}
                         answers={answers}
                         src={party}
+                        title={'Parabéns!'}
                         msg={'Você não esqueceu de nenhum flashcard!'}
                     />
                 )
