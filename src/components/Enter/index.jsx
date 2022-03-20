@@ -1,10 +1,10 @@
-import img from "../../assets/logo.png";
+import logo from "../../assets/logo.png";
 import { EntryScreen } from "./style.js"
 
-export const Enter = ({fn}) => {
+export const Enter = ({ fn }) => {
     return (
         <EntryScreen>
-            <img src={img} alt="logo" />
+            <img src={logo} alt="logo" />
             <h1>ZapRecall</h1>
             <button onClick={fn}>
                 <span>Iniciar Recall!</span>

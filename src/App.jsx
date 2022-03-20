@@ -1,5 +1,5 @@
-import { GlobalStyle } from "./style";
 import { useState } from "react";
+import { GlobalStyle } from "./style";
 import { Enter } from "./components/Enter";
 import { Game } from "./components/Game";
 
