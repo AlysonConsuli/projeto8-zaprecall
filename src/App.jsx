@@ -13,12 +13,12 @@ export const App = () => {
         cards = [
             { question: 'Em qual continente ocorrerá a Copa de 2026?', correctAnswer: 'América do Norte' },
             { question: 'limite de 1/x com x tendendo ao infinito é? = ?', correctAnswer: '0' },
-            { question: 'Qual melhor curso de programação do Brasil?', correctAnswer: 'Driven' },
+            { question: 'Qual melhor curso de programação do Brasil?', correctAnswer: 'Driven' }/*,
             { question: 'Qual descoberta fez o Einstein ganhar o seu nobel de física?', correctAnswer: 'Efeito fotoelétrico' },
             { question: 'Qual a gravidade da Terra?', correctAnswer: '9,8 m/s²' },
             { question: 'Quem é conhecido como bruxo no futebol?', correctAnswer: 'Ronaldinho Gaúcho' },
             { question: 'Quem nasce no Espírito Santo é?', correctAnswer: 'Capixaba' },
-            { question: 'Pq é difícil ser o Neymar?', correctAnswer: 'Um dia saberemos' }
+            { question: 'Pq é difícil ser o Neymar?', correctAnswer: 'Um dia saberemos' }*/
         ]
     } if (deck === 'marvel') {
         cards = [
@@ -44,7 +44,7 @@ export const App = () => {
                     callbackZap={(e) => setZapNumber(e.target.value)}
                     deck={deck}
                     callbackDeck={(e) => setDeck(e.target.value)}
-                /> : (zapNumber >= 1 && zapNumber <= cards.length ?
+                /> : (zapNumber === '' || (zapNumber >= 1 && zapNumber <= cards.length) ?
                     <Game
                         restart={() => setGame(false)}
                         zapNumber={zapNumber}

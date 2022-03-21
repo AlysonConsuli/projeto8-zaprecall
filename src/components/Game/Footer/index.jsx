@@ -15,7 +15,7 @@ export const Footer = ({ done, cards, answers, restart, zapNumber }) => {
                     <div>
                         {answers.map((el, i) => <img key={i + 1} src={el} alt={el} />)}
                     </div>
-                </> : (answers.filter(el => el === zap).length < zapNumber ?
+                </> : ( (zapNumber === '' && answers.includes(error)) || (answers.filter(el => el === zap)).length < zapNumber ?
                     <End
                         done={done}
                         cards={cards}
