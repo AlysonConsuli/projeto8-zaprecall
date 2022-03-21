@@ -1,8 +1,8 @@
-import { EndStyled } from "./style"
+import { EndMessage } from "./style"
 
-export const End = ({ done, cards, answers, src, title, msg, restart }) => {
+export const EndGameMessage = ({ done, cards, answers, src, title, msg, restart }) => {
     return (
-        <EndStyled>
+        <EndMessage>
             <div>
                 <img src={src} alt={src} />
                 <h3>{title}</h3>
@@ -17,6 +17,6 @@ export const End = ({ done, cards, answers, src, title, msg, restart }) => {
             <button onClick={restart}>
                 <span>REINICIAR RECALL</span>
             </button>
-        </EndStyled>
+        </EndMessage>
     )
 }

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const EndStyled = styled.div`
+export const EndMessage = styled.div`
     min-height: 171px;
     display: flex;
     flex-direction: column;

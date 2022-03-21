@@ -4,7 +4,7 @@ import zap from "../../../assets/zap.png";
 import party from "../../../assets/party.png";
 import sad from "../../../assets/sad.png";
 import { FooterStyled } from "./style"
-import { End } from "./End";
+import { EndGameMessage } from "./EndGameMessage";
 
 export const Footer = ({ done, cards, answers, restart, zapNumber }) => {
     return (
@@ -15,8 +15,8 @@ export const Footer = ({ done, cards, answers, restart, zapNumber }) => {
                     <div>
                         {answers.map((el, i) => <img key={i + 1} src={el} alt={el} />)}
                     </div>
-                </> : ( (zapNumber === '' && answers.includes(error)) || (answers.filter(el => el === zap)).length < zapNumber ?
-                    <End
+                </> : ((zapNumber === '' && answers.includes(error)) || (answers.filter(el => el === zap)).length < zapNumber ?
+                    <EndGameMessage
                         done={done}
                         cards={cards}
                         answers={answers}
@@ -26,7 +26,7 @@ export const Footer = ({ done, cards, answers, restart, zapNumber }) => {
                         restart={restart}
                     />
                     :
-                    <End
+                    <EndGameMessage
                         done={done}
                         cards={cards}
                         answers={answers}

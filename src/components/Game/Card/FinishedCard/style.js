@@ -1,16 +1,16 @@
 import styled from "styled-components"
 
-export const Red = styled.span`
+export const RedLine = styled.span`
     text-decoration-line: line-through;
     color: #FF3030 !important;
 `
 
-export const Yellow = styled.span`
+export const YellowLine = styled.span`
     text-decoration-line: line-through;
     color: #FF922E !important;
 `
 
-export const Green = styled.span`
+export const GreenLine = styled.span`
     text-decoration-line: line-through;
     color: #2FBE34 !important;
 `

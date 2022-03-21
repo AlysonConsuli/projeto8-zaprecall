@@ -8,30 +8,29 @@ export const App = () => {
     const [game, setGame] = useState(false)
     const [zapNumber, setZapNumber] = useState('')
     const [deck, setDeck] = useState('gerais')
-    let cards = getCards(deck)
+
+    function startGame() {
+        if ((zapNumber >= 1 && zapNumber <= getCards(deck).length) || zapNumber === '') {
+            return setGame(true)
+        }
+        alert('Insira número válido de zaps')
+    }
 
     return (
         <>
             <GlobalStyle />
-            {!game ?
-                <Enter
-                    startGame={() => setGame(true)}
-                    zapNumber={zapNumber}
-                    callbackZap={(e) => setZapNumber(e.target.value)}
-                    deck={deck}
-                    callbackDeck={(e) => setDeck(e.target.value)}
-                /> : (zapNumber === '' || (zapNumber >= 1 && zapNumber <= cards.length) ?
-                    <Game
-                        restart={() => setGame(false)}
-                        zapNumber={zapNumber}
-                        cards={cards}
-                    /> :
-                    <>
-                        {alert('Insira um número válido de zaps')}
-                        {setGame(false)}
-                    </>
-                )
-            }
+            {!game && <Enter
+                startGame={startGame}
+                zapNumber={zapNumber}
+                callbackZap={(e) => setZapNumber(e.target.value)}
+                deck={deck}
+                callbackDeck={(e) => setDeck(e.target.value)}
+            />}
+            {game && <Game
+                restart={() => setGame(false)}
+                zapNumber={zapNumber}
+                cards={getCards(deck)}
+            />}
         </>
     )
 }

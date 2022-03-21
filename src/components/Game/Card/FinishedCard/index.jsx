@@ -2,30 +2,30 @@ import error from "../../../../assets/error.png";
 import almost from "../../../../assets/almost.png";
 import zap from "../../../../assets/zap.png";
 import { ClosedCardStyled } from "../ClosedCard/style";
-import { Red, Yellow, Green } from "./style";
+import { RedLine, YellowLine, GreenLine } from "./style";
 
-export const EndCardRed = ({ number }) => {
+export const FinishedCardError = ({ number }) => {
     return (
         <ClosedCardStyled>
-            <Red>Pergunta {number}</Red>
+            <RedLine>Pergunta {number}</RedLine>
             <img src={error} alt="error" />
         </ClosedCardStyled>
     )
 }
 
-export const EndCardYellow = ({ number }) => {
+export const FinishedCardAlmost = ({ number }) => {
     return (
         <ClosedCardStyled>
-            <Yellow>Pergunta {number}</Yellow>
+            <YellowLine>Pergunta {number}</YellowLine>
             <img src={almost} alt="almost" />
         </ClosedCardStyled>
     )
 }
 
-export const EndCardGreen = ({ number }) => {
+export const FinishedCardZap = ({ number }) => {
     return (
         <ClosedCardStyled>
-            <Green>Pergunta {number}</Green>
+            <GreenLine>Pergunta {number}</GreenLine>
             <img src={zap} alt="zap" />
         </ClosedCardStyled>
     )
