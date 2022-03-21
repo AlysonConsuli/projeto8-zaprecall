@@ -7,12 +7,13 @@ export const OpenCard = ({ question, correctAnswer, fn1, fn2, fn3 }) => {
 
     return (
         <OpenCardStyled>
-            {turnCard === false ? (
+            {!turnCard &&
                 <>
                     <span>{question}</span>
                     <img onClick={() => { setTurnCard(true) }} src={circle} alt="seta redonda" />
                 </>
-            ) : (
+            }
+            {turnCard &&
                 <>
                     <span>{correctAnswer}</span>
                     <div>
@@ -21,7 +22,6 @@ export const OpenCard = ({ question, correctAnswer, fn1, fn2, fn3 }) => {
                         <Btn onClick={fn3}>Zap!</Btn>
                     </div>
                 </>
-            )
             }
         </OpenCardStyled>
     )

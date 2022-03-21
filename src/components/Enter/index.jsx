@@ -13,8 +13,7 @@ export const Enter = ({ startGame, zapNumber, callbackZap, deck, callbackDeck })
             </select>
             <input
                 type='number' placeholder='Digite sua meta de zaps...' min='1'
-                value={zapNumber}
-                onChange={callbackZap}
+                value={zapNumber} onChange={callbackZap}
             />
             <button onClick={startGame}>
                 <span>Iniciar Recall!</span>

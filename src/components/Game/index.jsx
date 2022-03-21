@@ -22,7 +22,11 @@ export const Game = ({ restart, zapNumber, cards }) => {
                 })
                 }
             </Deck>
-            <Footer done={done} cards={cards} answers={answers} restart={restart} zapNumber={zapNumber} />
+            <Footer
+                done={done} cards={cards}
+                answers={answers} restart={restart}
+                zapNumber={zapNumber}
+            />
         </>
     )
 }

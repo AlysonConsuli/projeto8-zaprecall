@@ -19,7 +19,7 @@ export const Card = ({ number, question, correctAnswer, callback }) => {
     if (answer === 'yellow') { return <FinishedCardAlmost number={number} /> }
     if (answer === 'green') { return <FinishedCardZap number={number} /> }
 
-    if (cardOpen === false) {
+    if (!cardOpen) {
         return (<ClosedCard number={number} fn={() => { setCardOpen(true) }} />)
     }
     return (
